@@ -236,7 +236,7 @@ class AutoLogin:
         self.log(f"当前: {url}")
         
         # 设备验证
-        if 'verified-device' in url or 'device-verification' in url:
+        if 'verified-device' in url or 'device-verification' in url or 'two-factor' in page.url:
             if not self.wait_device(page):
                 return False
             time.sleep(2)
@@ -244,10 +244,10 @@ class AutoLogin:
             self.shot(page, "验证后")
         
         # 2FA
-        if 'two-factor' in page.url:
-            self.log("需要两步验证！", "ERROR")
-            self.tg.send("❌ <b>需要两步验证</b>")
-            return False
+        #if 'two-factor' in page.url:
+            #self.log("需要两步验证！", "ERROR")
+            #self.tg.send("❌ <b>需要两步验证</b>")
+            #return False
         
         # 错误
         try:
