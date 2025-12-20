@@ -6,23 +6,52 @@
 
 ## ⚠️ 注意
 - 首次运行：可能需要设备验证，收到 TG 通知后 30 秒内批准
-- 如果设置了2FA验证的，请改为Mobile优先验证
-- REPO_TOKEN：需要有 Secrets 写入权限才能自动更新 Cookie
+- REPO_TOKEN：需要有 Secrets 写入权限才能自动更新
 - Cookie 有效期：每次运行都会更新，保持最新
 ![设备验证](./1.png)
 
-## 设置Mobile优先
-![设置Mobile优先验证](./2.png)
+---
 
 ## Secrets 配置
 | Secret 名称 | 说明 |
 | --- | --- |
 | `GH_USERNAME` | GitHub 用户名 |
 | `GH_PASSWORD` | GitHub 密码 |
+| `GH_SESSION` | Cookie（首次可为空）不用添加 |
 | `TG_BOT_TOKEN` | Telegram Bot Token |
 | `TG_CHAT_ID` | Telegram Chat ID |
-| `REPO_TOKEN` | GitHub Personal Access Token (自动更新 Cookie) |
+| `REPO_TOKEN` | GitHub Token（用于自动更新 Secret） |
 
+---
+
+## 快速开始
+
+### 1. Fork 仓库
+
+点击右上角 **Fork** 按钮
+
+### 2. 配置 Secrets
+
+进入 **Settings** → **Secrets and variables** → **Actions**，添加：
+
+**必需：**
+- `GH_USERNAME`: GitHub 用户名
+- `GH_PASSWORD`: GitHub 密码
+
+**推荐：**
+- `TG_BOT_TOKEN`: Telegram Bot Token
+- `TG_CHAT_ID`: Telegram Chat ID
+- `REPO_TOKEN`: GitHub Personal Access Token (自动更新 Cookie)
+
+### 3. 启用 Actions
+
+进入 **Actions** → 点击 **I understand my workflows**
+
+### 4. 手动测试
+
+选择 **Auto Login** workflow → **Run workflow**
+
+---
 ## 流程图
 ```
 开始
